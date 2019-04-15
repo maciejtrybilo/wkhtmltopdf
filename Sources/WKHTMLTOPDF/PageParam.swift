@@ -24,7 +24,7 @@ public enum PageParam: CustomStringConvertible, Equatable {
     /// --no-custom-header-propagation  Do not add HTTP headers specified by
     case noCustomHeaderPropagation
     /// --default-header Add a default header, with the name of the page to the left, and the page number to the right
-    case defaultHeader()
+    case defaultHeader
     /// --encoding <encoding> Set the default text encoding, for input
     case encoding(String)
     /// --disable-external-links Do not make links to remote web pages
@@ -78,7 +78,7 @@ public enum PageParam: CustomStringConvertible, Equatable {
     /// --post-file <name> <path> Post an additional file (repeatable)
     case postFile(name: String, path: String)
     /// --print-media-type Use print media-type instead of screen
-    case printMediaType()
+    case printMediaType
     /// --no-print-media-type Do not use print media-type instead of screen (default)
     case noPrintMediaType
     /// -p, --proxy <proxy> Use a proxy

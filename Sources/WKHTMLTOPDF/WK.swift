@@ -72,7 +72,7 @@ public class WKHTMLTOPDF {
 extension WKHTMLTOPDF {
     private func leafHeader(on container: Container, fm: FileManager, tmpDir: String) throws -> Future<Void> {
         if let option = self.params.first(where: { $0.isHeaderLeaf }), let pageBar = option.pageBar {
-            if let index = self.params.index(where: { $0.isHeaderHtml }) {
+            if let index = self.params.firstIndex(where: { $0.isHeaderHtml }) {
                 self.params.remove(at: index)
             }
             return try pageBar.generate(container, fm: fm, tmpDir: tmpDir).map { v in
@@ -84,7 +84,7 @@ extension WKHTMLTOPDF {
     
     private func leafFooter(on container: Container, fm: FileManager, tmpDir: String) throws -> Future<Void> {
         if let option = self.params.first(where: { $0.isFooterLeaf }), let pageBar = option.pageBar {
-            if let index = self.params.index(where: { $0.isFooterHtml }) {
+            if let index = self.params.firstIndex(where: { $0.isFooterHtml }) {
                 self.params.remove(at: index)
             }
             return try pageBar.generate(container, fm: fm, tmpDir: tmpDir).map { v in
